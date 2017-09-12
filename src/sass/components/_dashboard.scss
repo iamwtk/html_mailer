@@ -1,0 +1,21 @@
+#charts {
+    @extend .row;
+    @extend .justify-content-around;
+    text-align: center;
+    .single-chart {
+        margin: 1em 0;
+        h2.period {
+            font-size: 1.25em;
+            font-weight: normal;
+        }
+        span.total {
+            display: block;
+            line-height: 3rem;
+            font-weight: normal;             
+        }
+        
+        .recharts-wrapper {            
+            margin: 0 auto;
+        }
+    }
+}

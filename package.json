@@ -1,0 +1,69 @@
+{
+  "name": "html_mailer",
+  "version": "1.0.0",
+  "description": "Example project for tripsta.",
+  "main": "server.js",
+  "babel": {
+    "presets": [
+      "babel-preset-react",
+      "babel-preset-es2015"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "ie > 9"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node --presets=latest",
+    "start": "nodemon --exec npm run babel-node -- ./src/server.js",
+    "build": "babel src -d dist"
+  },
+  "author": "Vit Srajbr",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "babel-cli": "^6.11.4",
+    "babel-core": "^6.13.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.2",
+    "bootstrap": "^4.0.0-beta",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "font-awesome": "^4.7.0",
+    "history": "^4.7.2",
+    "mailgun-js": "^0.13.1",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.7.6",
+    "morgan": "^1.8.2",
+    "node-sass": "^4.5.3",
+    "nodemailer": "^4.1.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "recharts": "^1.0.0-alpha.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.4",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.10.0",
+    "http-server": "^0.9.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-strip-inline-comments": "^0.1.5",
+    "precss": "^2.0.0",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.7.0"
+  }
+}

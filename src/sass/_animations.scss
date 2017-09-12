@@ -1,0 +1,45 @@
+@keyframes slideDown {
+    from {
+        top: -100%;       
+    }
+    to {
+        top: 0;
+        
+    }
+}
+
+@keyframes slideDownNav {
+    from {
+        top: -100%;       
+    }
+    to {
+        top: $header-height;
+        
+    }
+}
+
+@keyframes slideUp {
+    from {
+        top: 0;
+    }
+    to {
+        top: -100%;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

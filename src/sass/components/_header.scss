@@ -1,0 +1,98 @@
+header.site-header {
+    @extend .row;
+    @extend .justify-content-between;
+    background: $dark;
+    z-index: 500;
+    position: relative;
+    animation: slideDown .5s;
+    .logo-wrap {
+        @extend .col-6;
+        @extend .col-lg-3;
+        @extend .col-xl-2;
+        padding: 0 1em;
+        a {
+            //target <a> created by react
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .logo {
+            font-family: $heading-font-stack;
+            font-weight: bold;
+            line-height: $header-height;
+            color: $light;
+            position: relative;
+            top: .125em;
+            .thin {
+                font-weight: normal;
+            }
+        }
+        @include media-breakpoint-up(lg) {
+            background: $light;
+            text-align: center;
+            .logo {
+                color: $dark;
+                font-size: 1.25em;
+            }
+        }
+    }
+    .buttons-wrap {
+        @extend .col-auto;
+        padding: 0;
+        button {
+            line-height: $header-height;
+            border: none;
+            background: none;
+            transition-duration: .5s;
+            width: 2.5rem;
+            i {
+                color: $light;
+            }
+            &:hover,
+            &.active {
+                background: $middle;
+                i {
+                    color: $dark;
+                }
+            }
+            &#main-nav {
+                display: inline-block;
+                @include media-breakpoint-up(lg) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+#user-nav {
+    @extend .no-bullet;
+    position: absolute;
+    background: $middle;
+    top: $header-height;
+    right: 0;
+    width: 200px;
+    text-align: center;
+    animation: slideDownNav 1s;
+    z-index: 450;
+    li {
+        a {
+            display: block;
+            line-height: $header-height;
+            color: $dark;
+            transition-duration: .5s;
+            
+            &:hover {
+                background: $light;
+                color: $dark;
+                text-decoration: none;                
+            }
+            
+            i {
+                width: $header-height;
+                line-height: $header-height;
+                float: left;
+            }
+        }
+    }
+}

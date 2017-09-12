@@ -1,0 +1,23 @@
+#main {
+    @extend .container-fluid;
+    
+    #page {
+        @extend .row;
+        
+        #content {
+            @extend .col;
+            @extend .col-lg-9;
+            @extend .col-xl-10;
+        }
+    }
+}
+
+.no-bullet {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+p,a,h1,h2,h3,h4,h5,h6,span {
+    color: $dark;
+}

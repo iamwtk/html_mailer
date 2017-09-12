@@ -1,0 +1,69 @@
+.main-nav {
+    @extend .col-sm-12;
+    @extend .col-lg-3;
+    @extend .col-xl-2;
+    background: $middle;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    height: auto;    
+    overflow: hidden;
+    position: fixed;
+    top: $header-height;
+    left:0;
+    z-index: 400;
+    ul {
+        @extend .no-bullet;
+        li {
+            a {
+                display: block;
+                color: $dark;
+                transition-duration: .5s;
+                .menu-item {
+                    line-height: $header-height;
+                    i {
+                        display: inline-block;
+                        line-height: $header-height;
+                        width: $header-height;
+                        float: left;
+                        background: $light;
+                        transition-duration: .5s;
+                    }
+                }
+                &:hover,
+                &.active {
+                    background: $light;
+                    text-decoration: none;
+                    .menu-item {
+                        i {
+                            background: $dark;
+                            color: $light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.active {
+        animation: slideDownNav 1s forwards;
+        visibility: visible;
+        
+    }
+    &.hidden {
+        animation: slideUp 1s forwards;
+        visibility: hidden;
+        
+    }
+    @include media-breakpoint-up(lg) {
+        display: block;
+        position: relative;
+        top:0;
+        &.active,
+        &.hidden {
+            visibility: visible;
+            height: calc(100vh - #{$header-height});
+            animation: slideLeft .5s;
+        }
+        
+    }
+}
