@@ -37,7 +37,7 @@ controllers(passport); // pass passport for configuration
 
 
 app.use(morgan('dev')); //Console logging each request
-app.use(Express.static(path.join(__dirname, 'static'))); //Serves static files from folder static
+app.use(Express.static(path.join(__dirname, '../static'))); //Serves static files from folder static
 app.use(bodyParser.urlencoded({ extended: true })); //Parsing urlencoded res
 app.use(bodyParser.json()); //Parsing json res
 app.set('view engine', 'ejs'); //template engine 
@@ -59,7 +59,7 @@ routes(app,passport);
 
 /******************************************
 SERVER ***********************************/
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 server.listen(port, (err) => {
     err ? console.error(err) : console.log(`Server is running on localhost:${port}`) 
 });

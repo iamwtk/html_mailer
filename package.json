@@ -16,15 +16,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node --presets=latest",
-    "start": "nodemon --exec npm run babel-node -- ./src/server.js",
-    "build": "babel src -d dist"
+    "start": "nodemon --exec npm run babel-node -- ./src/server/server.js",
+    "build": "babel-cli ./src/server/server.js --out-file ./src/server/server.bundle.js"
   },
   "author": "Vit Srajbr",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
-    "babel-cli": "^6.11.4",
-    "babel-core": "^6.13.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.2",
     "bootstrap": "^4.0.0-beta",

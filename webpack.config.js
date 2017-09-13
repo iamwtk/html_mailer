@@ -6,10 +6,10 @@ const webpack = require('webpack')
 
 module.exports = {
     context: path.join(__dirname, 'src'),
-    entry: ['./client.js', './sass/main.scss'],
+    entry: ['./client/client.js', './client/sass/main.scss'],
     output: {
         path: path.join(__dirname, 'src'),
-        filename: 'static/js/bundle.js',
+        filename: './static/js/bundle.js',
         publicPath: '/app'
     },
     module: {
@@ -33,7 +33,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: 'fonts/[name].[ext]',
-                        outputPath: './static',
+                        outputPath: './static/',
                         publicPath: '../'
                     }
                    
@@ -49,10 +49,12 @@ module.exports = {
     },
     plugins: [
         new bundleCSS({
-            filename: 'static/css/style.min.css',
+            filename: './static/css/style.min.css',
             allChunks: true
 
-        }),
+        }),                
+        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.AggressiveMergingPlugin()
 
 
     ]
