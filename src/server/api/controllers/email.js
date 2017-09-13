@@ -1,4 +1,4 @@
-import path from 'path'
+leimport path from 'path'
 import mongoose from 'mongoose'
 import Email from '../models/email'
 import User from '../models/user'
@@ -14,8 +14,8 @@ export function sendEmail(req, res) {
         port: '465',
         secure: true,
         auth: {
-            user: 'postmaster@mg.jarmill.com',
-            pass: '93d3891f4b9e4f99535721876e91ed78'
+            user: 'example@example.com',
+            pass: 'XXXXXXXXXXXXXXXXXXXXXX'
         }
     })
     //options for nodemailer
