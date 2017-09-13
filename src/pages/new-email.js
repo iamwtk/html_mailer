@@ -1,24 +1,22 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
 import axios from 'axios'
 
 
 
 class NewEmail extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       to: '',
       subject: '',
       html: '',
-      track: true    
-    };   
-    this.inputHandler = this.inputHandler.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+      track: true,
+      htmlEditor: false
+    };  
+    this.inputHandler = this.inputHandler.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.switchToPreview = this.switchToPreview.bind(this)
+    this.switchToText = this.switchToText.bind(this)
   }
     
     inputHandler(e) {
@@ -29,9 +27,10 @@ class NewEmail extends React.Component {
 
     this.setState({
       [name]: target.value
-    });
+    })
   }
     handleSubmit(e) {
+        
         axios.post('/api/email', {            
             to: this.state.to,
             subject: this.state.subject,
@@ -40,14 +39,21 @@ class NewEmail extends React.Component {
             
           })
           .then(function (response) {
-            alert('sent');
+            alert('Email successfully sent!');
           })
           .catch(function (err) {
             alert(err)
-          });
-        e.preventDefault();
+          })
+        e.preventDefault()
   }
     
+    switchToText() {
+        this.setState({htmlEditor: false})
+    }
+    switchToPreview() {
+        document.getElementById("html-editor").innerHTML = this.state.html
+        this.setState({htmlEditor: true})
+    }
 
   
     
@@ -55,50 +61,69 @@ class NewEmail extends React.Component {
 
   render() {
     return (
+    <div id="email-editor" className={this.state.htmlEditor ? 'html' : 'text'}>
       <form onSubmit={this.handleSubmit}>
-        <label>
-         To:
-          <input
-            name="to"
-            type="email"
-            value={this.state.to}
-            onChange={this.inputHandler}
+        <div className="form-group">
+            <label>To:</label>
+            <input
+                name="to"
+                type="email"
+                value={this.state.to}
+                onChange={this.inputHandler}
              />
-        </label>
-        <br />
-        <label>
-         Subject:
-          <input
-            name="subject"
-            type="text"
-            value={this.state.subject}
-            onChange={this.inputHandler}
-           />
-        </label>
-        <br />    
-        <label>
-         To:
+        </div>
+        <div className="form-group">
+            <label>Subject:</label>
+                <input
+                name="subject"
+                type="text"
+                value={this.state.subject}
+                onChange={this.inputHandler}
+               />
+        </div>   
+        <div className="top-bar">
+            <button 
+                onClick={this.switchToText}
+                type="button"
+                id="btn-text"
+                >
+                <i className="fa fa-code"></i>
+                
+                Code
+            </button>
+            <button 
+                id="btn-html"
+                onClick={this.switchToPreview}
+                type="button"
+                >
+                <i className="fa fa-eye"></i>
+                Preview
+            </button>
+            <div className="form-group-check">
+                <label>Track email?</label>
+                <input
+                name="track"
+                type="checkbox"
+                checked={this.state.track}
+                  onChange={this.inputHandler}
+                 />
+            </div>            
+            <button id="btn-send" type="submit">
+                <i className="fa fa-envelope-o"></i>
+                &nbsp;Send
+            </button>
+        </div>
+        <div className="text-editor-wrap">
           <textarea
             name="html" 
               value={this.state.html}
-              onChange={this.inputHandler}
-              />
-        </label>
-        <br />    
-        <label>
-          Track email?hhh:
-          <input
-            name="track"
-            type="checkbox"
-            checked={this.state.track}
-              onChange={this.inputHandler}
-             />
-        </label> 
-        <br />
-        <input type="submit" value="Send" />
+              onChange={this.inputHandler}/>
+        </div>
+          <div id="html-editor"></div>
       </form>
+    </div>    
     );
   }
 
 }
-export default NewEmail;
+export default NewEmail

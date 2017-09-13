@@ -19,6 +19,8 @@ class Layout extends React.Component {
         this.handleToggleNav = this.handleToggleNav.bind(this);
     }
     
+    
+    
     handleToggleNav() {
         this.setState({
             toggleNav: !this.state.toggleNav

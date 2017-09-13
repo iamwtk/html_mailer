@@ -7,12 +7,12 @@ class Dashboard {
             {
                 name: 'Unread',
                 value: 0,
-                fill: '#FF7043'
+                fill: '#f44336'
                 },
             {
                 name: 'Read',
                 value: 0,
-                fill: '#00796B'
+                fill: '#388E3C'
                 }
             ]
 

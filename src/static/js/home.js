@@ -1,6 +1,36 @@
 $(function () {
     "use strict";
-
+    /******************
+    POPUPS
+    *******************/
+    var closeBtn = '<button type="button" id="pop-close"><i class="fa fa-close"></i></button>';
+    
+    $(document).on('click','.login-btn', function (e) {
+        e.preventDefault();
+         $('#home .pop-overlay, #home .pop-overlay .form').addClass('hidden');
+        $('#home .pop-overlay, #home .pop-overlay .login').removeClass('hidden');
+        $('#home .pop-overlay .login form').append(closeBtn);
+    });
+    $(document).on('click','.signup-btn', function (e) {
+        e.preventDefault();
+         $('#home .pop-overlay, #home .pop-overlay .form').addClass('hidden');
+        $('#home .pop-overlay, #home .pop-overlay .signup').removeClass('hidden');
+        $('#home .pop-overlay .signup form').append(closeBtn);
+    });
+    $(document).on('click','#pop-close', function (e) {
+        e.preventDefault();
+        $('#home .pop-overlay, #home .pop-overlay .form').addClass('hidden');
+        $(this).remove();
+    });
+    
+    
+    
+    
+    
+    
+    /******************
+    AJAX LOGIN & SIGNUP
+    *******************/
     function passwordsMatch(pwd1, pwd2) {
         if (pwd1 === pwd2) {
             return true;

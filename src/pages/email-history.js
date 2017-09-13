@@ -6,22 +6,22 @@ import EmailList from '../components/email-history/email-list'
 
 class EmailHistory extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {apiData: []};
+        super(props)
+        this.state = {apiData: []}
     }
     componentDidMount() {
         axios.get('/api/email')
         .then((result)=> {        
-          const thisData = result.data;
+          const thisData = result.data
           this.setState({
             apiData: thisData
-          }); 
+          }) 
         })        
     }
    
     
     render() {
-        const apiData = this.state.apiData;
+        const apiData = this.state.apiData
         
         if (Object.keys(apiData).length > 0 && apiData.constructor === Array) {
             return(
@@ -39,4 +39,4 @@ class EmailHistory extends React.Component {
 }
 
 
-export default EmailHistory;
+export default EmailHistory

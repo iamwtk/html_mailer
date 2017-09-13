@@ -8,6 +8,15 @@
             @extend .col;
             @extend .col-lg-9;
             @extend .col-xl-10;
+            height: calc(100vh - #{$header-height});
+            overflow-y: auto;
+            padding-right: 0;
+            
+            #email-editor {
+                margin-right: 15px;
+            }
+            
+           
         }
     }
 }

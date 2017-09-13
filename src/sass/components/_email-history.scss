@@ -1,0 +1,43 @@
+.email-list {
+    @extend .no-bullet;
+    margin-right: 15px;
+    .single-email {
+        background: $light;
+        margin: .5em 0;
+        padding: 1em;
+        span {
+            display: block
+        }
+        i.read {
+            color: $green;
+        }
+        i.unread {
+            color: $alert;
+        }
+        .date {
+            color: $dark;
+            font-size: .75em;
+            margin-left: 1em;
+            display: inline;
+        }
+        strong {
+            font-weight: bold;
+        }
+        button {
+            margin-top: .5em;
+        }
+        @include media-breakpoint-up(md) {
+            span {
+                display: inline-block;
+            }
+            .to,
+            .subject {
+                margin-left: 3em;
+            }
+            button {
+                float: right;
+                margin-top: 0;
+            }
+        }
+    }
+}

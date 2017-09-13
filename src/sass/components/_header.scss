@@ -25,6 +25,7 @@ header.site-header {
             top: .125em;
             .thin {
                 font-weight: normal;
+                color: $light
             }
         }
         @include media-breakpoint-up(lg) {
@@ -33,6 +34,9 @@ header.site-header {
             .logo {
                 color: $dark;
                 font-size: 1.25em;
+                .thin {
+                    color: $dark;
+                }
             }
         }
     }
@@ -40,11 +44,12 @@ header.site-header {
         @extend .col-auto;
         padding: 0;
         button {
+            position: relative;
             line-height: $header-height;
             border: none;
             background: none;
             transition-duration: .5s;
-            width: 2.5rem;
+            width: $header-height;
             i {
                 color: $light;
             }
@@ -60,6 +65,19 @@ header.site-header {
                 @include media-breakpoint-up(lg) {
                     display: none;
                 }
+            }
+            span.new-notif {
+                display: block;
+                position: absolute;
+                top: 1.75rem;
+                right: .25rem;
+                background: $alert;
+                color: $white;
+                font-weight: bold;
+                line-height: 1.3em;
+                width: 1.3em;
+                font-size: .66em;
+                border-radius: .6em;
             }
         }
     }
@@ -81,17 +99,57 @@ header.site-header {
             line-height: $header-height;
             color: $dark;
             transition-duration: .5s;
-            
             &:hover {
                 background: $light;
                 color: $dark;
-                text-decoration: none;                
+                text-decoration: none;
             }
-            
             i {
                 width: $header-height;
                 line-height: $header-height;
                 float: left;
+            }
+        }
+    }
+}
+
+#notif-window {
+    @extend .no-bullet;
+    text-align: center;
+    position: absolute;
+    background: $dark;
+    top: $header-height;
+    right: 0;
+    z-index: 450;
+    overflow-y: auto;
+    border-bottom: .25em solid $dark;
+    width: 100%;
+    max-width: 400px;
+    height: 70vh;
+    max-height: 600px;
+    animation: slideDownNav 1s;
+    li {
+        .notif-single {
+            margin: .25em .375em;
+            background: #eee;
+            color: $light;
+            font-size: .8em;  
+            padding: 1em;
+            transition-delay: 20s;
+            p {
+                margin-bottom: 0;
+                .subject {
+                    display: block;
+                    font-size: 1.25em;
+                }
+            }
+            &.unread {
+                background: white;
+            }
+            
+            .date {
+                display: block;
+                text-align: right;
             }
         }
     }

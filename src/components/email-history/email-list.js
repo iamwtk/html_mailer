@@ -4,8 +4,7 @@ import SingleEmail from './single-email'
 
 class EmailList extends React.Component {
     render() {
-        const list = this.props.list;
-        console.log(list)
+        const list = this.props.list.reverse()        
         return(
             
             <ul className="email-list">
@@ -15,7 +14,10 @@ class EmailList extends React.Component {
                         to={email.to}    
                         from={email.from}    
                         html={email.html}    
-                        status={email.status}
+                        subject={email.subject}    
+                        read={email.read}
+                        date={email.date}
+                        id={email._id}
                         key={email._id}
                     />
                 )

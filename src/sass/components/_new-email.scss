@@ -1,0 +1,88 @@
+#email-editor {
+    position: relative;
+    form {
+        .form-group {
+            position: relative;
+            input[type=text],
+            input[type=email] {
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid $middle;
+                line-height: $header-height;
+                padding-left: 4em;
+            }
+            label {
+                position: absolute;
+                left: 0;
+                line-height: $header-height;
+            }
+        }
+        #html-editor,
+        textarea {
+            height: auto;
+            min-height: 65vh;
+            width: 100%;
+            border: 1px solid $middle;
+            word-break: break-all;
+        }
+        .top-bar {
+            &:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            position: relative;
+            background: $middle;
+            margin-top: 1em;
+            .form-group-check {
+                display: inline-block;
+                input[type=checkbox] {
+                    line-height: $header-height;
+                    margin-left: .5em;
+                }
+            }
+            button {
+                line-height:calc(#{$header-height} - .5em);
+                background: none;
+                border: none;
+                margin: .25em;
+                padding: 0 1em;
+                cursor: pointer;
+                &#btn-html,
+                &#btn-text {
+                    background: $middle;
+                }
+                &#btn-send {
+                    background: $blue;
+                    float: right;
+                    color: $light;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+    &.html {
+        .top-bar {
+            button {
+                &#btn-html {
+                    background: $light;
+                }
+            }
+        }
+        .text-editor-wrap {
+            display: none;
+        }
+    }
+    &.text {
+        .top-bar {
+            button {
+                &#btn-text {
+                    background: $light;
+                }
+            }
+        }
+        #html-editor {
+            display: none;
+        }
+    }
+}

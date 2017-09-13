@@ -11,9 +11,6 @@ class Charts extends React.Component {
         const apiData = this.props.apiData;
         
         
-        
-        
-        
         return (
         <div id="charts">
                 

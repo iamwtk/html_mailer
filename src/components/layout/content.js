@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import NewEmail from '../../pages/new-email'
 import EmailHistory from '../../pages/email-history'
 import Dashboard from '../../pages/dashboard'
@@ -16,7 +12,7 @@ const Content = () => (
     </div>
 )
 
-export default Content;
+export default Content
 
 
 

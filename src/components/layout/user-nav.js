@@ -6,13 +6,7 @@ import {
 
 class UserNav extends React.Component {
     render() {
-        const links = [
-            {
-                to: '/app',
-                icon: 'user-o',
-                text: 'Profile',
-                Link: true
-            },
+        const links = [            
              {
                 to: '/logout',
                 icon: 'power-off',
